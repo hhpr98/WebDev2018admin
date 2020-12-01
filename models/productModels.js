@@ -6,6 +6,11 @@ export const getAllProductDatabase = async () => {
     return product;
 }
 
+export const getOneProductDatabase = async (id) => {
+    const product = await Products.findByPk(id);
+    return product;
+}
+
 export const addNewProductDatabase = async (productId, name, originPrice, salePrice, quantity, description, branch, size, color) => {
     await Products.create({
         id: uuid(),
@@ -19,6 +24,24 @@ export const addNewProductDatabase = async (productId, name, originPrice, salePr
         size: size,
         color: color,
         type: 1
+    });
+}
+
+export const updateProductDatabase = async (id, productId, name, originPrice, salePrice, quantity, description, branch, size, color) => {
+    await Products.update({
+        productId: productId,
+        name: name,
+        originPrice: originPrice,
+        salePrice: salePrice,
+        quantity: quantity,
+        description: description,
+        branch: branch,
+        size: size,
+        color: color
+    }, {
+        where: {
+            id: id
+        }
     });
 }
 
