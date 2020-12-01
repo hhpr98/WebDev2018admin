@@ -21,3 +21,11 @@ export const addNewProductDatabase = async (productId, name, originPrice, salePr
         type: 1
     });
 }
+
+export const deleteProductDatabase = async (id) => {
+    await Products.destroy({
+        where: {
+            id: id
+        }
+    });
+}

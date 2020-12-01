@@ -1,4 +1,4 @@
-import { getAllProductDatabase, addNewProductDatabase } from "../models/productModels";
+import { getAllProductDatabase, addNewProductDatabase, deleteProductDatabase } from "../models/productModels";
 
 export const getAllProductPage = async (req, res) => {
 
@@ -40,7 +40,12 @@ export const editProduct = (req, res) => {
     res.render("home/index");
 }
 
-export const deleteProduct = (req, res) => {
+export const deleteProduct = async (req, res) => {
     // code ở đây...........
-    res.render("home/index");
+
+    const id = req.params.id;
+    // console.log(id);
+    await deleteProductDatabase(id);
+    const list = await getAllProductDatabase();
+    res.render("product/product-list", { list });
 }
