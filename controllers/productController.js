@@ -1,9 +1,12 @@
 import { Products } from "../database/models";
+import { getAllProductDatabase } from "../models/productModels";
 
-export const getAllProductPage = (req, res) => {
+export const getAllProductPage = async (req, res) => {
 
     // code ở đây...........
-    res.render("home/index");
+
+    const list = await getAllProductDatabase();
+    res.render("product/product-list", { list });
 }
 
 export const addNewProduct = (req, res) => {
