@@ -9,27 +9,32 @@
                     </div>
                     <table>
                         <tr>
-                            <th>Hình ảnh</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá gốc</th>
-                            <th>Giá khuyến mãi</th>
-                            <th>Số lượng</th>
-                            <th>Mô tả</th>
-                            <th>Màu sắc</th>
-                            <th>Size</th>
-                            <th>Hành động</th>
+                            <th style="text-align:center;">Hình ảnh</th>
+                            <th style="text-align:center;">Tên sản phẩm</th>
+                            <th style="text-align:center;">Giá gốc</th>
+                            <th style="text-align:center;">Giá khuyến mãi</th>
+                            <th style="text-align:center;">Số lượng</th>
+                            <th style="text-align:center;">Mô tả</th>
+                            <th style="text-align:center;">Màu sắc</th>
+                            <th style="text-align:center;">Size</th>
+                            <th style="text-align:center;">Hành động</th>
                         </tr>
                         {{#each list}}
                             <tr>
-                                <td><img src="/img/new-product/5.png" alt="Không thể tải ảnh" /></td>
+                                <td style="text-align:center;"><img src="/img/new-product/5.png" alt="Không thể tải ảnh" /></td>
                                 <td>{{name}}</td>
-                                <td>{{originPrice}}</td>
-                                <td>{{salePrice}}</td>
-                                <td>{{quantity}}</td>
-                                <td>{{description}}</td>
-                                <td>{{color}}</td>
-                                <td>{{size}}</td>
-                                <td>
+                                <td style="text-align:center;">{{originPrice}}</td>
+                                <td style="text-align:center;">{{salePrice}}</td>
+                                <td style="text-align:center;">{{quantity}}</td>
+                                <td style="text-align:center;">{{description}}</td>
+                                <td style="text-align:center;">{{color}}</td>
+                                <td style="text-align:center;">{{size}}</td>
+                                <td style="text-align:center;">
+                                    <a href="/product/detail/{{id}}">
+                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
+                                                class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
                                     <a href="/product/edit/{{id}}">
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -49,11 +54,11 @@
                     </table>
                     <div class="custom-pagination">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Trước</a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
                         </ul>
                     </div>
                 </div>
