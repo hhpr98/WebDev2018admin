@@ -1,0 +1,92 @@
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>Danh sách sản phẩm của danh mục {{categoryName}}</h4>
+                    <table>
+                        <tr>
+                            <th style="text-align:center;">Hình ảnh</th>
+                            <th style="text-align:left;">Tên sản phẩm</th>
+                            <th style="text-align:center;">Giá gốc</th>
+                            <th style="text-align:center;">Giá khuyến mãi</th>
+                            <th style="text-align:center;">Số lượng</th>
+                            <th style="text-align:center;">Màu sắc</th>
+                            <th style="text-align:center;">Size</th>
+                            <th style="text-align:center;">Hành động</th>
+                        </tr>
+                        {{#each productList}}
+                            <tr>
+                                <td style="text-align:center;">
+                                    <img src={{image1}} alt="Không thể tải ảnh" />
+                                </td>
+                                <td>{{name}}</td>
+                                <td style="text-align:center;">{{originPrice}}</td>
+                                <td style="text-align:center;">{{salePrice}}</td>
+                                <td style="text-align:center;">{{quantity}}</td>
+                                <td style="text-align:center;">{{color}}</td>
+                                <td style="text-align:center;">{{size}}</td>
+                                <td style="text-align:center;">
+                                    <a href="/product/detail/{{id}}">
+                                        <button data-toggle="tooltip" title="Chi tiết" class="pd-setting-ed"><i
+                                                class="fa fa-info-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+                                    <a href="/product/edit/{{id}}">
+                                        <button data-toggle="tooltip" title="Sửa" class="pd-setting-ed"><i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+                                    <a href="/product/delete/{{id}}"
+                                        onclick="return confirm ('Bạn có muốn xóa sản phẩm này?');">
+                                        <button data-toggle=" tooltip" title="Xóa" class="pd-setting-ed"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+
+
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </table>
+                    <div class="custom-pagination">
+                        <ul class="pagination" style="margin-left:5%;">
+
+                            {{#if pageCount}}
+                                {{#if isPreviousPage}}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/product/category/{{type}}?page={{previousPage}}">Trước</a>
+                                    </li>
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Trước</a>
+                                    </li>
+                                {{/if}}
+
+                                {{#each listPaginate}}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/product/category/{{../type}}?page={{pageId}}">{{pageId}}</a>
+                                    </li>
+                                {{/each}}
+
+                                {{#if isNextPage}}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/product/category/{{type}}?page={{nextPage}}">Sau</a>
+                                    </li>
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Sau</a>
+                                    </li>
+                                {{/if}}
+                            {{else}}
+                                <h2 class="text-danger mt-5 mb-5 text-center">
+                                    Ồ không!!!! không có sản phẩm nào ở đây cả. Vui lòng thử lại!
+                                </h2>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

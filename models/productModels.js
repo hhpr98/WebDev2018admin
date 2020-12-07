@@ -1,4 +1,4 @@
-import { Products } from "../database/models";
+import { Products, Categories, Op } from "../database/models";
 import { v4 as uuid } from "uuid";
 
 export const getProductListDatabase = async (limit, page) => {
@@ -61,4 +61,49 @@ export const deleteProductDatabase = async (id) => {
             id: id
         }
     });
+}
+
+export const getCategoryDatabase = async () => {
+
+    const _category = await Categories.findAll({
+        where: {
+            isDeleted: 0
+        }
+    });
+
+    return _category;
+}
+
+export const getProductListDatabaseByCategory = async (limit, page, type) => {
+
+    const _product = await Products.findAndCountAll({
+        where: {
+            isDeleted: 0,
+            type: type
+        },
+        limit: limit,
+        offset: limit * (page - 1)
+    });
+
+    return _product;
+}
+
+export const getProductListDatabaseBySearchText = async (limit, page, text) => {
+
+    const _product = await Products.findAndCountAll({
+        where: {
+            isDeleted: 0,
+            name: {
+                [Op.like]: `%${text}%`
+            }
+        },
+        limit: limit,
+        offset: limit * (page - 1)
+    });
+    return _product;
+}
+
+export const getCategoryNameDatabase = async (id) => {
+    const _category = await Categories.findByPk(id);
+    return _category === null ? "trống" : _category.name;
 }
