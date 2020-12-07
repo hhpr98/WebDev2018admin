@@ -58,8 +58,8 @@ export const addNewProductPost = catchAsync(
 
         await addNewProductDatabase(productId, name, originPrice, salePrice, quantity, description, branch, size, color);
 
-        const list = await getAllProductDatabase();
-        res.render("product/product-list", { list });
+        res.redirect("/product");
+        
     }
 );
 
@@ -90,8 +90,8 @@ export const editProductPost = catchAsync(
 
         await updateProductDatabase(id, productId, name, originPrice, salePrice, quantity, description, branch, size, color);
 
-        const list = await getAllProductDatabase();
-        res.render("product/product-list", { list });
+        res.redirect(`/product/detail/${id}`);
+
     }
 );
 
