@@ -1,9 +1,17 @@
 import { Products } from "../database/models";
 import { v4 as uuid } from "uuid";
 
-export const getAllProductDatabase = async () => {
-    const product = await Products.findAll();
-    return product;
+export const getProductListDatabase = async (limit, page) => {
+
+    const _product = await Products.findAndCountAll({
+        where: {
+            isDeleted: 0
+        },
+        limit: limit,
+        offset: limit * (page - 1)
+    });
+
+    return _product;
 }
 
 export const getOneProductDatabase = async (id) => {
@@ -46,7 +54,9 @@ export const updateProductDatabase = async (id, productId, name, originPrice, sa
 }
 
 export const deleteProductDatabase = async (id) => {
-    await Products.destroy({
+    await Products.update({
+        isDeleted: 1
+    }, {
         where: {
             id: id
         }

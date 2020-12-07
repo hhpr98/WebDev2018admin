@@ -1,11 +1,37 @@
-import { getAllProductDatabase, addNewProductDatabase, deleteProductDatabase, getOneProductDatabase, updateProductDatabase } from "../models/productModels";
+import { getProductListDatabase, addNewProductDatabase, deleteProductDatabase, getOneProductDatabase, updateProductDatabase } from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
+
+const getListPaginate = (currentPage, pageCount) => {
+    const arrPage = [];
+    for (var i = 1; i <= pageCount; i++) {
+        arrPage.push({
+            isCurrentPage: i === currentPage ? true : false,
+            pageId: i
+        });
+    }
+    return arrPage;
+}
 
 export const getAllProductPage = catchAsync(
     async (req, res) => {
 
-        const list = await getAllProductDatabase();
-        res.render("product/product-list", { list });
+        const currentPage = +req.query.page || 1;
+        const limitPerPage = 6;
+        const list = await getProductListDatabase(limitPerPage, currentPage);
+
+        const totalCount = list.count || 0;
+        const pageCount = Math.ceil(totalCount / limitPerPage);
+        const previousPage = currentPage - 1;
+        const nextPage = currentPage + 1;
+        const isPreviousPage = (currentPage <= 1 ? false : true);
+        const isNextPage = (currentPage >= pageCount ? false : true);
+
+        res.render("product/product-list", {
+            title: "Danh sách sản phẩm",
+            productList: list.rows,
+            currentPage, pageCount, previousPage, nextPage, isPreviousPage, isNextPage,
+            listPaginate: getListPaginate(currentPage, pageCount)
+        });
     }
 );
 
@@ -74,7 +100,6 @@ export const deleteProduct = catchAsync(
         const id = req.params.id;
         // console.log(id);
         await deleteProductDatabase(id);
-        const list = await getAllProductDatabase();
-        res.render("product/product-list", { list });
+        res.redirect("/product");
     }
 )
