@@ -5,6 +5,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import dotenv from "dotenv";
+import { registerHelper } from "./libs/hbsHelper";
 
 import indexRouter from "./routes/index";
 
@@ -15,6 +16,8 @@ dotenv.config(); // using dotenv file
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set('view options', { layout: 'layout/layout' });
+// view engine helper
+registerHelper();
 
 app.use(logger('dev'));
 app.use(express.json());
