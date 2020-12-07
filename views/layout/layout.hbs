@@ -77,14 +77,14 @@
       </div>
       <div class="nalika-profile">
         <div class="profile-dtl">
-          <a href="#"><img src="/img/notification/4.jpg" alt="" /></a>
-          <h2>Lakian <span class="min-dtn">Das</span></h2>
+          <a href="#"><img src="/img/avatar-default.jpg" alt="" /></a>
+          <h2>Admin</h2>
         </div>
         <div class="profile-social-dtl">
           <ul class="dtl-social">
-            <li><a href="#"><i class="icon nalika-facebook"></i></a></li>
-            <li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-            <li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+            <li><a href="https://ishop-hddteam.herokuapp.com"><i class="icon nalika-facebook"></i></a></li>
+            <li><a href="https://ishop-hddteam.herokuapp.com"><i class="icon nalika-twitter"></i></a></li>
+            <li><a href="https://ishop-hddteam.herokuapp.com"><i class="icon nalika-linkedin"></i></a></li>
           </ul>
         </div>
       </div>
@@ -97,8 +97,16 @@
                 <span class="mini-click-non">Quản lí</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <li><a title="Sản phẩm" href="/product"><span class="mini-sub-pro">Sản phẩm</span></a></li>
-                <li><a title="Product Cart" href="/cart"><span class="mini-sub-pro">Product Cart</span></a>
+                <li>
+                  <a title="Trang chủ" href="/"><span class="mini-sub-pro">Trang chủ</span></a>
+                </li>
+                <li>
+                  <a title="Sản phẩm" href="/product"><span class="mini-sub-pro">Sản phẩm</span></a>
+                </li>
+                <li>
+                  <a title="Loại sản phẩm" href="/product/category">
+                    <span class="mini-sub-pro">Loại sản phẩm</span>
+                  </a>
                 </li>
                 <li><a title="Product Payment" href="/payment"><span class="mini-sub-pro">Product
                       Payment</span></a></li>
@@ -155,9 +163,9 @@
                   <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                     <div class="header-top-menu tabl-d-n hd-search-rp">
                       <div class="breadcome-heading">
-                        <form role="search" class="">
-                          <input type="text" placeholder="Tìm kiếm..." class="form-control">
-                          <a href=""><i class="fa fa-search"></i></a>
+                        <form role="search" method="GET" action="/product/search?text={{text}}">
+                          <input type="text" placeholder="Tìm kiếm..." class="form-control" name="text">
+                          <a type="submit"><i class="fa fa-search"></i></a>
                         </form>
                       </div>
                     </div>
@@ -226,17 +234,16 @@
                             <i class="icon nalika-down-arrow nalika-angle-dw"></i>
                           </a>
                           <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                            <li><a href="register.html"><span class="icon nalika-home author-log-ic"></span>
-                                Đăng kí</a>
+                            <li>
+                              <a href="#"><span class="icon nalika-user author-log-ic"></span> Trang cá nhân</a>
                             </li>
                             <li>
-                              <a href="login.html">
+                              <a href="/logout">
                                 <span class="icon nalika-unlocked author-log-ic"></span>
                                 Đăng xuất
                               </a>
                             </li>
-                            <li><a href="#"><span class="icon nalika-user author-log-ic"></span> Trang cá nhân</a>
-                            </li>
+
                           </ul>
                         </li>
                         <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button"
@@ -264,7 +271,7 @@
                           class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                       <ul class="collapse dropdown-header-top">
                         <li><a href="/product">Sản phẩm</a></li>
-                        <li><a href="product-cart.html">Product Cart</a></li>
+                        <li><a href="/product/category">Loại sản phẩm</a></li>
                         <li><a href="product-payment.html">Product Payment</a></li>
                       </ul>
                     </li>
