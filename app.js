@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import dotenv from "dotenv";
 import { registerHelper } from "./libs/hbsHelper";
-
+import multer from "multer"
 import indexRouter from "./routes/index";
 
 var app = express(); // express
@@ -50,3 +50,15 @@ const PORT = process.env.PORT || 4444;
 app.listen(PORT, () => {
   console.log(`App is running at PORT ${PORT}`);
 });
+
+// set store for image
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/img/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null,file.originalname)
+  }
+})
+ 
+var upload = multer({ storage: storage })
