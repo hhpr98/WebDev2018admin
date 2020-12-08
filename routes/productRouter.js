@@ -13,7 +13,7 @@ productRouter.get("/category", getCategoryPage);
 productRouter.get("/category/:id", getProductListPageByCategoryPage);
 productRouter.get("/search", getProductListPageBySearchText);
 
-// upload router
+// set storrage for image
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/img/uploads')
@@ -25,8 +25,8 @@ var storage = multer.diskStorage({
    
   var upload = multer({ storage: storage })
 
-
-  productRouter.post('/detail/upload', upload.single('file'),(req, res)=>{
+// upload router
+  productRouter.post('/detail/upload/:id', upload.single('file'),(req, res)=>{
     updateProductImage(req, res, req.file.originalname);
 })
 export default productRouter;

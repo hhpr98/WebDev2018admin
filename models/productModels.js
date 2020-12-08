@@ -107,3 +107,11 @@ export const getCategoryNameDatabase = async (id) => {
     const _category = await Categories.findByPk(id);
     return _category === null ? "trống" : _category.name;
 }
+
+export const updateImage1 = async (id, new_imgurl) => {
+    const product = await Products.findByPk(id);
+    await product.update({
+        image1: new_imgurl
+    })
+    return null;
+}
