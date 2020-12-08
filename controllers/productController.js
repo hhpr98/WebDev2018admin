@@ -1,5 +1,6 @@
 import { getProductListDatabase, getProductListDatabaseByCategory, getProductListDatabaseBySearchText, addNewProductDatabase, deleteProductDatabase, getOneProductDatabase, updateProductDatabase, getCategoryDatabase, getCategoryNameDatabase } from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
+import multer from "multer"
 
 const getListPaginate = (currentPage, pageCount) => {
     const arrPage = [];
@@ -169,3 +170,12 @@ export const getProductListPageBySearchText = catchAsync(
         });
     }
 );
+export const updateProductImage = catchAsync(
+    async (req, res, filename) =>{
+        console.log(filename);
+        const id = req.params.id;
+        res.send(id);
+        console.log(id);
+        console.log("a");
+    }
+)
