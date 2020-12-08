@@ -105,14 +105,14 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="product-tab-list tab-pane fade" id="reviews">
+                            <div class="product-tab-list tab-pane fade show active" id="reviews">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="pro-edt-img">
-                                                        <img src="/img/new-product/5-small.jpg" alt="" />
+                                                        <img src={{product.image1}} alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-8">
@@ -158,28 +158,33 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="product-edt-remove">
                                                                             <!-- upload image form -->
-                                                                            <form method="post" action="/product/detail/upload"
+                                                                            <form method="post"
+                                                                                action="/product/detail/upload/{{product.id}}"
                                                                                 enctype="multipart/form-data">
                                                                                 <div class="form-group">
+                                                                                    <hr>
+                                                                                    <p>Update this image</p>
                                                                                     <div class="row">
                                                                                         <div class="col-md-8">
                                                                                             <button type="button"
-                                                                                            class="btn btn-ctl-bt waves-effect waves-light">
+                                                                                                class="btn btn-ctl-bt waves-effect waves-light">
                                                                                                 <input type="file"
-                                                                                                name="file"/>
+                                                                                                    name="file"
+                                                                                                    value="Upload image" />
                                                                                             </button>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4">
+                                                                                            <button type="submit" style="border: 1px white solid"
+                                                                                            class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
 
                                                                                         </div>
-                                                                                        <button type="submit"
-                                                                                            class="btn btn-primary pull-right">Upload</button>
-                                                                                        <div class="col-md-4">
-                                                                                            <button type="button"
-                                                                                                class="btn btn-ctl-bt waves-effect waves-light">Remove
-                                                                                                <i class="fa fa-times"
-                                                                                                    aria-hidden="true"></i>
-                                                                                            </button>
-                                                                                        </div>
                                                                                     </div>
+                                                                                    <button type="button"
+                                                                                        class="btn btn-ctl-bt waves-effect waves-light">Remove
+                                                                                        <i class="fa fa-times"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </button>
                                                                                 </div>
 
                                                                             </form>
