@@ -49,6 +49,7 @@ app.use(function (err, req, res, next) {
 const PORT = process.env.PORT || 4444;
 app.listen(PORT, () => {
   console.log(`App is running at PORT ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
 
 // set store for image

@@ -1,15 +1,16 @@
-import { getProductListDatabase,
-     getProductListDatabaseByCategory,
-      getProductListDatabaseBySearchText,
-       addNewProductDatabase,
-        deleteProductDatabase,
-         getOneProductDatabase,
-          updateProductDatabase,
-           getCategoryDatabase,
-     getCategoryNameDatabase,
-     updateImage1 } from "../models/productModels";
+import {
+    getProductListDatabase,
+    getProductListDatabaseByCategory,
+    getProductListDatabaseBySearchText,
+    addNewProductDatabase,
+    deleteProductDatabase,
+    getOneProductDatabase,
+    updateProductDatabase,
+    getCategoryDatabase,
+    getCategoryNameDatabase,
+    updateImage1
+} from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
-import multer from "multer"
 
 const getListPaginate = (currentPage, pageCount) => {
     const arrPage = [];
@@ -179,14 +180,23 @@ export const getProductListPageBySearchText = catchAsync(
         });
     }
 );
+
 // 
 export const updateProductImage = catchAsync(
-    async (req, res, filename) =>{
-        var newUrl = "/img/uploads/"+filename;
+    async (req, res, filename) => {
+        var newUrl = "/img/uploads/" + filename;
         console.log(newUrl);
         const id = req.params.id;
         console.log(id);
         await updateImage1(id, newUrl);
-        res.redirect('/product/edit/'+id);
+        res.redirect('/product/edit/' + id);
     }
-)
+);
+
+export const getProductDetailPage = catchAsync(
+    async (req, res) => {
+        const id = req.params.id;
+        const product = await getOneProductDatabase(id);
+        res.render("product/product-detail", { title: "Chi tiết sản phẩm", product })
+    }
+);

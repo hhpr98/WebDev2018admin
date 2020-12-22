@@ -8,7 +8,7 @@
                     <div class="review-tab-pro-inner">
                         <ul id="myTab3" class="tab-review-design">
                             <li class="active"><a href="#description"><i class="icon nalika-edit"
-                                        aria-hidden="true"></i> Thêm sản phẩm</a></li>
+                                        aria-hidden="true"></i> Sửa sản phẩm</a></li>
                             <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Hình ảnh</a>
                             </li>
                             <li><a href="#INFORMATION"><i class="icon nalika-chat" aria-hidden="true"></i> Nhận xét</a>
@@ -24,7 +24,7 @@
                                                     <span class="input-group-addon"><i class="icon nalika-user"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Mã sản phẩm"
-                                                        name="productId" value={{product.productId}}>
+                                                        name="productId" value={{{product.productId}}}>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="icon nalika-edit"
@@ -36,19 +36,19 @@
                                                     <span class="input-group-addon"><i class="fa fa-usd"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Giá gốc"
-                                                        name="originPrice" value={{product.originPrice}}>
+                                                        name="originPrice" value={{{product.originPrice}}}>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="icon nalika-new-file"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Giá khuyến mãi"
-                                                        name="salePrice" value={{product.salePrice}}>
+                                                        name="salePrice" value={{{product.salePrice}}}>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="icon nalika-favorites"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Số lượng"
-                                                        name="quantity" value={{product.quantity}}>
+                                                        name="quantity" value={{{product.quantity}}}>
                                                 </div>
                                             </div>
                                         </div>
@@ -58,26 +58,26 @@
                                                     <span class="input-group-addon"><i class="icon nalika-user"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Mô tả"
-                                                        name="description" value={{product.description}}>
+                                                        name="description" value="{{product.description}}">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i
                                                             class="icon nalika-favorites-button"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Nhãn hiệu"
-                                                        name="branch" value={{product.branch}}>
+                                                        name="branch" value={{{product.branch}}}>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-usd"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Kích cỡ"
-                                                        name="size" value={{product.size}}>
+                                                        name="size" value={{{product.size}}}>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="icon nalika-like"
                                                             aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" placeholder="Màu sắc"
-                                                        name="color" value={{product.color}}>
+                                                        name="color" value={{{product.color}}}>
                                                 </div>
                                                 <select name="select"
                                                     class="form-control pro-edt-select form-control-primary">

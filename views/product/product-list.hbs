@@ -14,8 +14,7 @@
                             <th style="text-align:center;">Giá gốc</th>
                             <th style="text-align:center;">Giá khuyến mãi</th>
                             <th style="text-align:center;">Số lượng</th>
-                            <th style="text-align:center;">Màu sắc</th>
-                            <th style="text-align:center;">Size</th>
+                            <th style="text-align:center;">Lượt xem</th>
                             <th style="text-align:center;">Hành động</th>
                         </tr>
                         {{#each productList}}
@@ -24,11 +23,10 @@
                                     <img src={{image1}} alt="Không thể tải ảnh" />
                                 </td>
                                 <td>{{name}}</td>
-                                <td style="text-align:center;">{{originPrice}}</td>
-                                <td style="text-align:center;">{{salePrice}}</td>
+                                <td style="text-align:center;">{{formatCurencyVND originPrice}} đ</td>
+                                <td style="text-align:center;">{{formatCurencyVND salePrice}} đ</td>
                                 <td style="text-align:center;">{{quantity}}</td>
-                                <td style="text-align:center;">{{color}}</td>
-                                <td style="text-align:center;">{{size}}</td>
+                                <td style="text-align:center;">{{viewCount}}</td>
                                 <td style="text-align:center;">
                                     <a href="/product/detail/{{id}}">
                                         <button data-toggle="tooltip" title="Chi tiết" class="pd-setting-ed"><i
@@ -46,8 +44,6 @@
                                                 class="fa fa-trash-o" aria-hidden="true"></i>
                                         </button>
                                     </a>
-
-
                                 </td>
                             </tr>
                         {{/each}}
