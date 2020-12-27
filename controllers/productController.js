@@ -197,6 +197,11 @@ export const getProductDetailPage = catchAsync(
     async (req, res) => {
         const id = req.params.id;
         const product = await getOneProductDatabase(id);
-        res.render("product/product-detail", { title: "Chi tiết sản phẩm", product })
+        const categoryName = await getCategoryNameDatabase(product.type);
+        const category = await getCategoryDatabase();
+        res.render("product/product-detail", {
+            title: "Chi tiết sản phẩm",
+            product, categoryName, category
+        });
     }
 );
