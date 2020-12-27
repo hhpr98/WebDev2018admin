@@ -26,19 +26,25 @@ export const getOneProductDatabase = async (id) => {
 // Thêm 1 sản phẩm mới
 // Input : infor product
 // Result : 
-export const addNewProductDatabase = async (productId, name, originPrice, salePrice, quantity, description, branch, size, color) => {
+export const addNewProductDatabase = async (name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId) => {
     await Products.create({
         id: uuid(),
-        productId: productId,
         name: name,
         originPrice: originPrice,
         salePrice: salePrice,
+        salePercent: salePercent,
         quantity: quantity,
         description: description,
         branch: branch,
         size: size,
         color: color,
-        type: 1
+        image1: image1,
+        image2: image2,
+        image3: image3,
+        specification1: specification1,
+        specification2: specification2,
+        specification3: specification3,
+        type: catId
     });
 }
 

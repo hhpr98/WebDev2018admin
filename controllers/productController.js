@@ -12,6 +12,15 @@ import {
 } from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
 
+// hàm lấy mảng paginate dựa vào tổng số trang vào số trang hiện tại
+//  [
+//      {
+//          pageId: 1,
+//          isCurrentPage: false, 
+//      }, {
+//          pageId: 2,
+//          isCurrentPage: true, 
+//      }, {......
 const getListPaginate = (currentPage, pageCount) => {
     const arrPage = [];
     for (var i = 1; i <= pageCount; i++) {
@@ -23,6 +32,7 @@ const getListPaginate = (currentPage, pageCount) => {
     return arrPage;
 }
 
+// Danh sách sản phẩm
 export const getAllProductPage = catchAsync(
     async (req, res) => {
 
@@ -49,7 +59,8 @@ export const getAllProductPage = catchAsync(
 // Thêm 1 sản phẩm
 export const addNewProduct = catchAsync(
     async (req, res) => {
-        res.render("product/product-add", { title: "Thêm sản phẩm" });
+        const category = await getCategoryDatabase();
+        res.render("product/product-add", { title: "Thêm sản phẩm", category });
     }
 );
 
@@ -57,18 +68,24 @@ export const addNewProduct = catchAsync(
 export const addNewProductPost = catchAsync(
     async (req, res) => {
 
-        const productId = req.body.productId || "1x031";
         const name = req.body.name || "";
-        // console.log(name);
-        const originPrice = req.body.originPrice || 100000;
-        const salePrice = req.body.salePrice || 99000;
-        const quantity = req.body.quantity || 10;
-        const description = req.body.description || "Không có";
+        const originPrice = req.body.originprice || 100000;
+        const salePrice = req.body.saleprice || 99000;
+        const salePercent = req.body.salepercent || 0;
+        const quantity = req.body.quantity || 100;
+        const description = req.body.description || "Không có mô tả";
         const branch = req.body.branch || "Không";
         const size = req.body.size || "M";
         const color = req.body.color || "Đen";
+        const image1 = req.body.image1 || "/img/product-default.jpg";
+        const image2 = req.body.image2 || "/img/product-default.jpg";
+        const image3 = req.body.image3 || "/img/product-default.jpg";
+        const specification1 = req.body.specification1 || "Đang cập nhật";
+        const specification2 = req.body.specification2 || "Đang cập nhật";
+        const specification3 = req.body.specification3 || "Đang cập nhật";
+        const catId = req.body.catId || "1";
 
-        await addNewProductDatabase(productId, name, originPrice, salePrice, quantity, description, branch, size, color);
+        await addNewProductDatabase(name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId);
 
         res.redirect("/product");
 
@@ -104,9 +121,9 @@ export const editProductPost = catchAsync(
         const branch = req.body.branch || "Không";
         const size = req.body.size || "M";
         const color = req.body.color || "Đen";
-        const image1 = req.body.image1 || "/img/avatar-default.jpg";
-        const image2 = req.body.image2 || "/img/avatar-default.jpg";
-        const image3 = req.body.image3 || "/img/avatar-default.jpg";
+        const image1 = req.body.image1 || "/img/product-default.jpg";
+        const image2 = req.body.image2 || "/img/product-default.jpg";
+        const image3 = req.body.image3 || "/img/product-default.jpg";
         const specification1 = req.body.specification1 || "Đang cập nhật";
         const specification2 = req.body.specification2 || "Đang cập nhật";
         const specification3 = req.body.specification3 || "Đang cập nhật";
@@ -119,6 +136,7 @@ export const editProductPost = catchAsync(
     }
 );
 
+// Action : xóa 1 sản phẩm
 export const deleteProduct = catchAsync(
     async (req, res) => {
         const id = req.params.id;
@@ -126,8 +144,9 @@ export const deleteProduct = catchAsync(
         await deleteProductDatabase(id);
         res.redirect("/product");
     }
-)
+);
 
+// Danh sách loại sản phẩm
 export const getCategoryPage = catchAsync(
     async (req, res) => {
         const categoryList = await getCategoryDatabase();
@@ -136,6 +155,7 @@ export const getCategoryPage = catchAsync(
     }
 );
 
+// Lấy danh sách sản phẩm dựa vào category
 export const getProductListPageByCategoryPage = catchAsync(
     async (req, res) => {
 
@@ -164,6 +184,7 @@ export const getProductListPageByCategoryPage = catchAsync(
     }
 );
 
+// Lấy danh sách sản phẩm dựa vào từ khóa tìm kiếm
 export const getProductListPageBySearchText = catchAsync(
     async (req, res) => {
 
@@ -194,7 +215,7 @@ export const getProductListPageBySearchText = catchAsync(
     }
 );
 
-// 
+// Upload hình ảnh
 export const updateProductImage = catchAsync(
     async (req, res, filename) => {
         var newUrl = "/img/uploads/" + filename;
