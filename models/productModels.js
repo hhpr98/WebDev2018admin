@@ -45,17 +45,24 @@ export const addNewProductDatabase = async (productId, name, originPrice, salePr
 // Cập nhật dữ liệu cho 1 sản phẩm
 // Input : infor product
 // Result : 
-export const updateProductDatabase = async (id, productId, name, originPrice, salePrice, quantity, description, branch, size, color) => {
+export const updateProductDatabase = async (id, name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId) => {
     await Products.update({
-        productId: productId,
         name: name,
         originPrice: originPrice,
         salePrice: salePrice,
+        salePercent: salePercent,
         quantity: quantity,
         description: description,
         branch: branch,
         size: size,
-        color: color
+        color: color,
+        image1: image1,
+        image2: image2,
+        image3: image3,
+        specification1: specification1,
+        specification2: specification2,
+        specification3: specification3,
+        type: catId
     }, {
         where: {
             id: id

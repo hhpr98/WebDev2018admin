@@ -46,13 +46,14 @@ export const getAllProductPage = catchAsync(
     }
 );
 
-
+// Thêm 1 sản phẩm
 export const addNewProduct = catchAsync(
     async (req, res) => {
         res.render("product/product-add", { title: "Thêm sản phẩm" });
     }
-
 );
+
+// Action : thêm 1 sản phẩm
 export const addNewProductPost = catchAsync(
     async (req, res) => {
 
@@ -74,32 +75,44 @@ export const addNewProductPost = catchAsync(
     }
 );
 
+// Chỉnh sửa sản phẩm
 export const editProduct = catchAsync(
     async (req, res) => {
 
         const id = req.params.id;
         const product = await getOneProductDatabase(id);
-        // console.log(product);
-        res.render("product/product-edit", { title: "Chỉnh sửa sản phẩm", product });
+        const categoryName = await getCategoryNameDatabase(product.type);
+        const category = await getCategoryDatabase();
+        res.render("product/product-edit", {
+            title: "Chỉnh sửa sản phẩm",
+            product, categoryName, category
+        });
     }
 );
 
+// Action : chỉnh sửa sản phẩm
 export const editProductPost = catchAsync(
     async (req, res) => {
 
-        const id = req.params.id;
-
-        const productId = req.body.productId || "1x031";
+        const id = req.params.id || "1111"; // không có thì đưa id sai, khi đó update cũng không thành công
         const name = req.body.name || "";
-        const originPrice = req.body.originPrice || 100000;
-        const salePrice = req.body.salePrice || 99000;
-        const quantity = req.body.quantity || 10;
-        const description = req.body.description || "Không có";
+        const originPrice = req.body.originprice || 100000;
+        const salePrice = req.body.saleprice || 99000;
+        const salePercent = req.body.salepercent || 0;
+        const quantity = req.body.quantity || 100;
+        const description = req.body.description || "Không có mô tả";
         const branch = req.body.branch || "Không";
         const size = req.body.size || "M";
         const color = req.body.color || "Đen";
+        const image1 = req.body.image1 || "/img/avatar-default.jpg";
+        const image2 = req.body.image2 || "/img/avatar-default.jpg";
+        const image3 = req.body.image3 || "/img/avatar-default.jpg";
+        const specification1 = req.body.specification1 || "Đang cập nhật";
+        const specification2 = req.body.specification2 || "Đang cập nhật";
+        const specification3 = req.body.specification3 || "Đang cập nhật";
+        const catId = req.body.catId || "1";
 
-        await updateProductDatabase(id, productId, name, originPrice, salePrice, quantity, description, branch, size, color);
+        await updateProductDatabase(id, name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId);
 
         res.redirect(`/product/detail/${id}`);
 
