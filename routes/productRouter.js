@@ -1,6 +1,18 @@
 import express from "express";
 import multer from "multer"
-import { addNewProduct, addNewProductPost, deleteProduct, editProduct, editProductPost, getAllProductPage, getCategoryPage, getProductListPageByCategoryPage, getProductListPageBySearchText, updateProductImage, getProductDetailPage } from "../controllers/productController";
+import {
+  addNewProduct,
+  addNewProductPost,
+  deleteProduct,
+  editProduct,
+  editProductPost,
+  getAllProductPage,
+  getCategoryPage,
+  getProductListPageByCategoryPage,
+  getProductListPageBySearchText,
+  updateProductImage,
+  getProductDetailPage,
+} from "../controllers/productController";
 const productRouter = express.Router();
 
 productRouter.get("/", getAllProductPage);

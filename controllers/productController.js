@@ -193,6 +193,7 @@ export const updateProductImage = catchAsync(
     }
 );
 
+// Trang chi tiết sản phẩm
 export const getProductDetailPage = catchAsync(
     async (req, res) => {
         const id = req.params.id;
