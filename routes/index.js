@@ -8,7 +8,7 @@ const indexRouter = express.Router();
 
 indexRouter.use("/", homeRouter);
 indexRouter.use("/account", accountRounter);
-// indexRouter.use("/user", userRouter);
+// indexRouter.use("/user", userRouter);git
 indexRouter.use("/product", productRouter);
 indexRouter.get("/test", async (req, res) => { // test thử connect database
     const product = await Products.findAll();
