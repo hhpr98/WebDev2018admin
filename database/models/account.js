@@ -40,6 +40,11 @@ module.exports = (sequelize, DataTypes) => {
             updatedAt: {
                 type: DataTypes.DATE,
                 allowNull: true
+            },
+	isLock: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                defaultValue: 0 // chưa xóa
             }
         },
         {}

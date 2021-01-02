@@ -183,9 +183,7 @@ export const getProductListPageBySearchText = catchAsync(
 export const updateProductImage = catchAsync(
     async (req, res, filename) =>{
         var newUrl = "/img/uploads/"+filename;
-        console.log(newUrl);
         const id = req.params.id;
-        console.log(id);
         await updateImage1(id, newUrl);
         res.redirect('/product/edit/'+id);
     }
