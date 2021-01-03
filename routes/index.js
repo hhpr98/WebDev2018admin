@@ -1,5 +1,4 @@
 import express from "express";
-<<<<<<< HEAD
 // for authenticate
 import bcrypt from "bcrypt";
 const SALT_ROUNDS = 10;
@@ -7,8 +6,7 @@ import passport from "passport";
 const localStrategy = require("passport-local").Strategy;
 
 import { Products } from "../database/models";
-=======
->>>>>>> ac316d4046c29a3b973a855e59ac751178aca27a
+
 import homeRouter from "./homeRouter";
 import productRouter from "./productRouter";
 import accountRounter from "./accountRouter";
