@@ -12,6 +12,17 @@ import indexRouter from "./routes/index";
 var app = express(); // express
 dotenv.config(); // using dotenv file
 
+//  authenticate
+
+import expressSession from "express-session";
+import passport from "passport";
+
+app.use(expressSession({secret: "userCookieSecret",resave: false, saveUninitialized: false, cookie:{maxAge: 3000000}})); // 5p ton tai
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
