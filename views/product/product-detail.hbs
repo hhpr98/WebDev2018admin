@@ -1,0 +1,237 @@
+<!-- Single pro tab start-->
+<div class="single-product-tab-area mg-b-30">
+    <!-- Single pro tab review Start-->
+    <div class="single-pro-review-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="review-tab-pro-inner">
+                        <div id="myTabContent" class="tab-content custom-product-edit">
+                            <div class="product-tab-list tab-pane fade active in">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcomb-ctn">
+                                            <p>Mã sản phẩm</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-key" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Mã sản phẩm" name="id"
+                                                id="id" value="{{product.id}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Tên sản phẩm</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Tên sản phẩm"
+                                                name="name" id="name" value="{{product.name}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Giá gốc</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="number" class="form-control" placeholder="Giá gốc"
+                                                name="originprice" id="originprice" value="{{product.originPrice}}"
+                                                disabled style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Giá khuyến mãi</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="number" class="form-control" placeholder="Giá khuyến mãi"
+                                                name="saleprice" id="saleprice" value="{{product.salePrice}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Phần trăm khuyến mãi</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-percent" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="number" class="form-control" placeholder="Phần trăm khuyến mãi"
+                                                name="salepercent" id="salepercent" value="{{product.salePercent}}"
+                                                disabled style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Số lượng</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-minus-square" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="number" class="form-control" placeholder="Số lượng"
+                                                name="quantity" id="quantity" value="{{product.quantity}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Mô tả</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Mô tả"
+                                                name="description" id="description" value="{{product.description}}"
+                                                disabled style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Nhãn hiệu</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Nhãn hiệu"
+                                                name="branch" id="branch" value="{{product.branch}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Kích cỡ</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-sitemap" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Kích cỡ" name="size"
+                                                id="size" value="{{product.size}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcomb-ctn">
+                                            <p>Màu sắc</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Màu sắc" name="color"
+                                                id="color" value="{{product.color}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Hình ảnh 1</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Hình ảnh 1"
+                                                name="image1" id="image1" value="{{product.image1}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Hình ảnh 2</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Hình ảnh 2"
+                                                name="image2" id="image2" value="{{product.image2}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Hình ảnh 3</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Hình ảnh 3"
+                                                name="image3" id="image3" value="{{product.image3}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Thuộc tính 1</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Thuộc tính 1"
+                                                name="specification1" id="specification1"
+                                                value="{{product.specification1}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Thuộc tính 2</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Thuộc tính 2"
+                                                name="specification2" id="specification2"
+                                                value="{{product.specification2}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Thuộc tính 3</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Thuộc tính 3"
+                                                name="specification3" id="specification3"
+                                                value="{{product.specification3}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Cập nhật cuối</p>
+                                        </div>
+                                        <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Cập nhật cuối"
+                                                name="updatedAt" id="updatedAt" value="{{product.updatedAt}}" disabled
+                                                style="background-color: black;">
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <p>Loại sản phẩm</p>
+                                        </div>
+                                        <select name="select" class="form-control pro-edt-select form-control-primary">
+                                            <option value="{{product.type}}" selected="selected">
+                                                {{categoryName}}
+                                            </option>
+                                            {{#each category}}
+                                                <option value="{{id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="text-center custom-pro-edt-ds">
+                                            <form method="GET" action="/product/edit/{{product.id}}">
+                                                <button type="submit"
+                                                    class="btn btn-ctl-bt waves-effect waves-light m-r-10">
+                                                    Chỉnh sửa
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
