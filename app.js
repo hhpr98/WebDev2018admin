@@ -60,6 +60,7 @@ app.use(function (err, req, res, next) {
 const PORT = process.env.PORT || 4444;
 app.listen(PORT, () => {
   console.log(`App is running at PORT ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
 
 // set store for image
@@ -68,8 +69,8 @@ var storage = multer.diskStorage({
     cb(null, './public/img/uploads')
   },
   filename: function (req, file, cb) {
-    cb(null,file.originalname)
+    cb(null, file.originalname)
   }
 })
- 
+
 var upload = multer({ storage: storage })
