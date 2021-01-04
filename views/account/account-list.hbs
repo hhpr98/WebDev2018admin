@@ -5,7 +5,7 @@
                 <div class="product-status-wrap">
                     <h4>Danh sách người dùng</h4>
 
-                    <table>
+                    <table class="table-hover">
                         <tr>
                             <th style="text-align:center;">Hình đại diện</th>
                             <th style="text-align:center;">Tên tài khoản</th>
@@ -21,7 +21,7 @@
                                 <img src={{image}} alt="Không thể tải ảnh" />
                             </td>
                             <td>{{username}}</td>
-                            <td style="text-align:center;">{{name}} đ</td>
+                            <td style="text-align:center;">{{name}}</td>
                             <td style="text-align:center;">{{phonenumber}}</td>
                             <td style="text-align:center;">{{eamil}}</td>
                             <td style="text-align:center;">{{address}}</td>
@@ -35,11 +35,6 @@
                                 <a href="/dashboard/account/detail/{{id}}">
                                     <button data-toggle="tooltip" title="Chi tiết" class="pd-setting-ed"><i
                                             class="fa fa-info-circle" aria-hidden="true"></i>
-                                    </button>
-                                </a>
-                                <a href="/dashboard/account/edit/{{id}}">
-                                    <button data-toggle="tooltip" title="Sửa" class="pd-setting-ed"><i
-                                            class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </button>
                                 </a>
                                 
@@ -59,7 +54,7 @@
                             {{#if pageCount}}
                             {{#if isPreviousPage}}
                             <li class="page-item">
-                                <a class="page-link" href="/product?page={{previousPage}}">Trước</a>
+                                <a class="page-link" href="/dashboard/account/account-list?page={{previousPage}}">Trước</a>
                             </li>
                             {{else}}
                             <li class="page-item disabled">
@@ -69,13 +64,13 @@
 
                             {{#each listPaginate}}
                             <li class="page-item">
-                                <a class="page-link" href="/dashboard/product?page={{pageId}}">{{pageId}}</a>
+                                <a class="page-link" href="/dashboard/account/account-list?page={{pageId}}">{{pageId}}</a>
                             </li>
                             {{/each}}
 
                             {{#if isNextPage}}
                             <li class="page-item">
-                                <a class="page-link" href="/dashboard/product?page={{nextPage}}">Sau</a>
+                                <a class="page-link" href="/dashboard/account/account-list?page={{nextPage}}">Sau</a>
                             </li>
                             {{else}}
                             <li class="page-item disabled">

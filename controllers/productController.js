@@ -8,7 +8,9 @@ import {
     updateProductDatabase,
     getCategoryDatabase,
     getCategoryNameDatabase,
-    updateImage1
+    updateImage1,
+    updateImage2,
+    updateImage3
 } from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
 
@@ -220,8 +222,17 @@ export const updateProductImage = catchAsync(
     async (req, res, filename) => {
         var newUrl = "/img/uploads/" + filename;
         const id = req.params.id;
-        await updateImage1(id, newUrl);
-        res.redirect('/product/edit/' + id);
+        const num = req.params.num;
+        console.log(typeof num);
+        console.log(num);
+
+        if(num=="1")
+            await updateImage1(id, newUrl);
+        if(num =="2")
+            await updateImage2(id, newUrl);
+        if(num=="3")
+            await updateImage3(id, newUrl);
+        res.redirect('/dashboard/product/edit/' + id);
     }
 );
 

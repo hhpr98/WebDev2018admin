@@ -19,7 +19,7 @@ export const lockAcoount = async (userId, value) => {
 // Result: list + count
 export const getAccountListDatabase = async (limit, page) => {
 
-    const _product = await Users.findAndCountAll({
+    const _users = await Users.findAndCountAll({
         where: {
             isDeleted: 0,
             type: 1
@@ -28,7 +28,7 @@ export const getAccountListDatabase = async (limit, page) => {
         offset: limit * (page - 1)
     });
 
-    return _product;
+    return _users;
 }
 
 // update password

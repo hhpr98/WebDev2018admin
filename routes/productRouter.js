@@ -39,7 +39,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 // upload router
-productRouter.post('/detail/upload/:id', upload.single('file'), (req, res) => {
+productRouter.post('/detail/upload/:id&:num', upload.single('file'), (req, res) => {
   updateProductImage(req, res, req.file.originalname);
 });
 
