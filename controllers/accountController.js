@@ -30,7 +30,7 @@ export const getAccountPage = catchAsync(
     // lay tam thong tin acc
     const id = req.user;
     const user_info = await getAccountByID(id);
-    res.render("account/account", { title: "Tài khoản",layout: "layout/loginlayout", user: user_info, noti:message});
+    res.render("account/info", { title: "Tài khoản", user: user_info, noti:message});
   }
 );
 
