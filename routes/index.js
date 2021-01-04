@@ -5,27 +5,22 @@ const SALT_ROUNDS = 10;
 import passport from "passport";
 const localStrategy = require("passport-local").Strategy;
 
-import { Products } from "../database/models";
-
-import homeRouter from "./homeRouter";
-import productRouter from "./productRouter";
-import accountRounter from "./accountRouter";
-
-import { getAccountAuthenticate, getLoginPage, getRegisterPage, postRegisterPage } from "../controllers/accountController"
+import adminRouter  from "./adminRouter";
+// import accountRounter  from "./accountRouter";
+import { getAccountAuthenticate, getLoginPage} from "../controllers/accountController"
 
 const indexRouter = express.Router();
 
-indexRouter.use("/dashboard", homeRouter);
-indexRouter.use("/account", (req, res, next) => {
+// indexRouter.use("/dashboard", adminRouter);
+indexRouter.use("/dashboard", (req, res, next) => {
     // neu da authenticat thi cho phep di vao trong
     if (req.isAuthenticated()) {
         next();
     }
     else
-        res.render("error/autheticate");
-}, accountRounter);
+        res.render("error/autheticate", { title: "Đăng nhập", layout: "layout/loginlayout" , Noti:"Bạn chưa đăng nhập"});
+}, adminRouter);
 // indexRouter.use("/user", userRouter);
-indexRouter.use("/product", productRouter);
 
 // for login
 
