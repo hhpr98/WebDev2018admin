@@ -87,7 +87,7 @@ export const addNewProductPost = catchAsync(
 
         await addNewProductDatabase(name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId);
 
-        res.redirect("/product");
+        res.redirect("/dashboard/product");
 
     }
 );
@@ -142,7 +142,7 @@ export const deleteProduct = catchAsync(
         const id = req.params.id;
         // console.log(id);
         await deleteProductDatabase(id);
-        res.redirect("/product");
+        res.redirect("/dashboard/product");
     }
 );
 
@@ -190,7 +190,7 @@ export const getProductListPageBySearchText = catchAsync(
 
         const text = req.query.text || ""; // text to search
         if (text === "") {
-            res.redirect("/product");
+            res.redirect("/dashboard/product");
             return;
         }
 
