@@ -1,4 +1,5 @@
 <!-- Single pro tab start-->
+
 <div class="single-product-tab-area mg-b-30">
     <!-- Single pro tab review Start-->
     <div class="single-pro-review-area">
@@ -10,32 +11,35 @@
                             <li class="active"><a href="#description"><i class="icon nalika-edit"
                                         aria-hidden="true"></i> Thông tin tài khoản</a></li>
                         </ul>
+                        <h3 style="color:red;">{{noti}}</h3>
+
                         <div id="myTabContent" class="tab-content custom-product-edit nalika-edit">
-                            <form method="POST" action="/account/updateInfo">
+                            <form method="POST" action="/dashboard/account/updateInfo">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <h3>Tên người dùng</h3>
-                                            <input id="ten" type="text" class="form-control" name="userName"
+                                            <input id="ten" type="text" class="form-control" name="name"
                                                 value="{{user.name}}">
                                             <hr>
                                             <h3>Số điện thoại</h3>
-                                            <input id="ten" type="text" class="form-control" name="userPhone"
+                                            <input id="ten" type="text" class="form-control" name="phone"
                                                 value={{user.phonenumber}}>
                                             <hr>
                                             <h3>Email</h3>
-                                            <input id="ten" type="text" class="form-control" name="userEmail"
+                                            <input id="ten" type="text" class="form-control" name="email"
                                                 value={{user.email}}>
                                             <hr>
                                             <h3>Địa chỉ</h3>
-                                            <input id="ten" type="text" class="form-control" name="userAddress"
+                                            <input id="ten" type="text" class="form-control" name="address"
                                                 value="{{user.address}}">
                                             <hr>
                                         </div>
-                                        <div class="col-md-4">                                          
+                                        <div class="col-md-4">
                                             <div class="image-container">
-                                                <img class="d-flex justify-content-center" style="border-radius: 100%;" src="/img/avatar-default.jpg" alt="" />
-                                            </div>                                                             
+                                                <img class="d-flex justify-content-center" style="border-radius: 100%;"
+                                                    src="/img/avatar-default.jpg" alt="" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top: 20px;">
