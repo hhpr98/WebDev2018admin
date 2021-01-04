@@ -146,9 +146,32 @@ export const getCategoryNameDatabase = async (id) => {
 
 // Cập nhật hình ảnh
 export const updateImage1 = async (id, new_imgurl) => {
-    const product = await Products.findByPk(id);
-    await product.update({
+    await Products.update({
         image1: new_imgurl
-    })
-    return null;
+    },{
+        where:{
+            id: id
+        },
+        limit:1
+    });
+}
+export const updateImage2 = async (id, new_imgurl) => {
+    await Products.update({
+        image2: new_imgurl
+    },{
+        where:{
+            id: id
+        },
+        limit:1
+    });
+}
+export const updateImage3 = async (id, new_imgurl) => {
+    await Products.update({
+        image3: new_imgurl
+    },{
+        where:{
+            id: id
+        },
+        limit:1
+    });
 }

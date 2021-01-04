@@ -198,7 +198,7 @@
                                                         {{categoryName}}
                                                     </option>
                                                     {{#each category}}
-                                                        <option value="{{id}}">{{name}}</option>
+                                                    <option value="{{id}}">{{name}}</option>
                                                     {{/each}}
                                                 </select>
                                             </div>
@@ -225,6 +225,98 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
                                             <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="product-edt-remove form-group row">
+                                                        <p>Cập nhật ảnh này</p>
+                                                        <!-- upload image form -->
+                                                        <form method="post"
+                                                            action="/dashboard/product/detail/upload/{{product.id}}&1"
+                                                            enctype="multipart/form-data">
+                                                            <div class="col-md-8">
+                                                                <button type="button"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">
+                                                                    <input type="file" name="file"
+                                                                        value="Upload image" />
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button type="submit" style="border: 1px white solid"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="image-container">
+                                                        <img src="{{product.image1}} " alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="product-edt-remove form-group row">
+                                                        <p>Cập nhật ảnh này</p>
+                                                        <!-- upload image form -->
+                                                        <form method="post"
+                                                            action="/dashboard/product/detail/upload/{{product.id}}&2"
+                                                            enctype="multipart/form-data">
+                                                            <div class="col-md-8">
+                                                                <button type="button"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">
+                                                                    <input type="file" name="file"
+                                                                        value="Upload image" />
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button type="submit" style="border: 1px white solid"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="image-container">
+                                                        <img src="{{product.image2}}" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="product-edt-remove form-group row">
+                                                        <p>Cập nhật ảnh này</p>
+                                                        <!-- upload image form -->
+                                                        <form method="post"
+                                                            action="/dashboard/product/detail/upload/{{product.id}}&3"
+                                                            enctype="multipart/form-data">
+                                                            <div class="col-md-8">
+                                                                <button type="button"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">
+                                                                    <input type="file" name="file"
+                                                                        value="Upload image" />
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button type="submit" style="border: 1px white solid"
+                                                                    class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="image-container">
+                                                        <img src="{{product.image3}} " alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+
+<div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="pro-edt-img">
                                                         <img src={{product.image1}} alt="" />
@@ -270,42 +362,7 @@
                                                                             </form>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div class="product-edt-remove">
-                                                                            <!-- upload image form -->
-                                                                            <form method="post"
-                                                                                action="/product/detail/upload/{{product.id}}"
-                                                                                enctype="multipart/form-data">
-                                                                                <div class="form-group">
-                                                                                    <hr>
-                                                                                    <p>Update this image</p>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-8">
-                                                                                            <button type="button"
-                                                                                                class="btn btn-ctl-bt waves-effect waves-light">
-                                                                                                <input type="file"
-                                                                                                    name="file"
-                                                                                                    value="Upload image" />
-                                                                                            </button>
-                                                                                        </div>
 
-                                                                                        <div class="col-md-4">
-                                                                                            <button type="submit"
-                                                                                                style="border: 1px white solid"
-                                                                                                class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <button type="button"
-                                                                                        class="btn btn-ctl-bt waves-effect waves-light">Remove
-                                                                                        <i class="fa fa-times"
-                                                                                            aria-hidden="true"></i>
-                                                                                    </button>
-                                                                                </div>
-
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -434,14 +491,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+-->

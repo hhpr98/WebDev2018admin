@@ -4,6 +4,33 @@ import bcrypt from "bcrypt";
 
 const SALT_ROUNDS = 10;
 
+// lock account
+export const lockAcoount = async (userId, value) => {
+    await Users.update({
+        isBanned : value
+    },{
+        where:{
+            id: userId
+        },
+        limit:1
+    });
+}
+// Lấy toàn bộ danh sách sản phẩm 
+// Result: list + count
+export const getAccountListDatabase = async (limit, page) => {
+
+    const _users = await Users.findAndCountAll({
+        where: {
+            isDeleted: 0,
+            type: 1
+        },
+        limit: limit,
+        offset: limit * (page - 1)
+    });
+
+    return _users;
+}
+
 // update password
 export const updatePasswordById = async (newpw, userID)=>{  
     const _password = bcrypt.hashSync(newpw, SALT_ROUNDS);
@@ -31,19 +58,19 @@ export const getUserByUserName = async (userName) => {
 }
 // admin
 // create new
-export const addAccount = async (username, password, email) => {
-    // tạo thông tin trong bảng account
-    const _password = bcrypt.hashSync(password, SALT_ROUNDS);
-    await Users.create({
-        id: uuid(),
-        name: "Người dùng",
-        email: email,
-        phonenumber: null,
-        username: username,
-        password: _password,
-        type: 1
-    });
-}
+// export const addAccount = async (username, password, email) => {
+//     // tạo thông tin trong bảng account
+//     const _password = bcrypt.hashSync(password, SALT_ROUNDS);
+//     await Users.create({
+//         id: uuid(),
+//         name: "Người dùng",
+//         email: email,
+//         phonenumber: null,
+//         username: username,
+//         password: _password,
+//         type: 1
+//     });
+// }
 
 export const getAccountByID = async (userId) => {
     const _users = await Users.findOne({
@@ -55,22 +82,22 @@ export const getAccountByID = async (userId) => {
     return _users;
 }
 
-export const getAccountByUserName = async (userName) => {
-    const _users = await Users.findOne({
-        where: {
-            isDeleted: 0,
-            username: userName
-        }
-    });
-    if(_users == null)
-        return null;
-    const id = _users.id;
-    const un = _users.username;
-    const pw = _users.password;
-    return {
-        id, un, pw
-    };
-}
+// export const getAccountByUserName = async (userName) => {
+//     const _users = await Users.findOne({
+//         where: {
+//             isDeleted: 0,
+//             username: userName
+//         }
+//     });
+//     if(_users == null)
+//         return null;
+//     const id = _users.id;
+//     const un = _users.username;
+//     const pw = _users.password;
+//     return {
+//         id, un, pw
+//     };
+// }
 export const getAdminAccount = async (userName) => {
     const _users = await Users.findOne({
         where: {

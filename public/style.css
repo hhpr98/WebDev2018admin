@@ -3681,3 +3681,9 @@ th.fc-day-header.fc-widget-header {
   img {
     object-fit: cover;
   }
+  label{
+      color: white;
+  }
+  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: black;
+  }
