@@ -43,7 +43,14 @@ export const getAccountPage = catchAsync(
     res.render("account/info", { title: "Tài khoản", user: user_info, noti:message});
   }
 );
-
+export const getAccountDetail = catchAsync(
+  async (req, res) => {
+    const id = req.params.id;
+    // lay tam thong tin acc
+    const user_info = await getAccountByID(id);
+    res.render("account/account-detail", { title: "Thông tin tài khoản", user: user_info});
+  }
+);
 // get
 export const getAccountAuthenticate = async (accountName) => {
   const pw = await getAdminAccount(accountName);

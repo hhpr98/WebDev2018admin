@@ -3681,3 +3681,6 @@ th.fc-day-header.fc-widget-header {
   img {
     object-fit: cover;
   }
+  label{
+      color: white;
+  }
