@@ -1,18 +1,28 @@
 import {
   getAccountByID,
   updateUserImage,
-  getAccountByUserName,
-  addAccount,
   updateUserInfoById,
   updatePasswordById,
   getNPIById,
-  getAdminAccount
+  getAdminAccount,
+  getAccountListDatabase
 } from "../models/accountModels";
 import bcrypt from "bcrypt";
 
 const SALT_ROUNDS = 10;
 import catchAsync from "../libs/catchAsync";
 
+// function 
+const getListPaginate = (currentPage, pageCount) => {
+  const arrPage = [];
+  for (var i = 1; i <= pageCount; i++) {
+      arrPage.push({
+          isCurrentPage: i === currentPage ? true : false,
+          pageId: i
+      });
+  }
+  return arrPage;
+}
 // get layout
 export const getLoginPage = catchAsync(
   async (req, res) => {
@@ -39,6 +49,29 @@ export const getAccountAuthenticate = async (accountName) => {
   const pw = await getAdminAccount(accountName);
   return pw;
 }
+// get all 
+export const getAllAccountPage = catchAsync(
+  async (req, res) => {
+
+      const currentPage = +req.query.page || 1;
+      const limitPerPage = 6;
+      const list = await getAccountListDatabase(limitPerPage, currentPage);
+
+      const totalCount = list.count || 0;
+      const pageCount = Math.ceil(totalCount / limitPerPage);
+      const previousPage = currentPage - 1;
+      const nextPage = currentPage + 1;
+      const isPreviousPage = (currentPage <= 1 ? false : true);
+      const isNextPage = (currentPage >= pageCount ? false : true);
+
+      res.render("account/account-list", {
+          title: "Danh sách tài khoản",
+          accountList: list.rows,
+          currentPage, pageCount, previousPage, nextPage, isPreviousPage, isNextPage,
+          listPaginate: getListPaginate(currentPage, pageCount)
+      });
+  }
+);
 
 
 // action
