@@ -4,6 +4,17 @@ import bcrypt from "bcrypt";
 
 const SALT_ROUNDS = 10;
 
+// lock account
+export const lockAcoount = async (userId, value) => {
+    await Users.update({
+        isBanned : value
+    },{
+        where:{
+            id: userId
+        },
+        limit:1
+    });
+}
 // Lấy toàn bộ danh sách sản phẩm 
 // Result: list + count
 export const getAccountListDatabase = async (limit, page) => {

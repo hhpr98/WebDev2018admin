@@ -5,7 +5,8 @@ import {
   updatePasswordById,
   getNPIById,
   getAdminAccount,
-  getAccountListDatabase
+  getAccountListDatabase,
+  lockAcoount
 } from "../models/accountModels";
 import bcrypt from "bcrypt";
 
@@ -82,6 +83,22 @@ export const getAllAccountPage = catchAsync(
 
 
 // action
+export const lockSelectedAccount = catchAsync(
+  async (req, res) => {
+    const id = req.params.id;
+    var value = req.params.isBanned;
+    console.log(value);
+    if(value == "0")  // khoa tai khoan
+      value =1;
+    else
+      value = 0;
+      console.log(value);
+    // lay tam thong tin acc
+    const user_info = await lockAcoount(id, value);
+    res.redirect("/dashboard/account/account-list");
+  }
+);
+
 export const logoutAccount = catchAsync(
   async (req, res) => {
     req.logout();

@@ -4,6 +4,7 @@ import {
     updateInfo,
     getAllAccountPage,
     getAccountDetail,
+    lockSelectedAccount,
     editAccountDetail,
     updateAccountDetail
 
@@ -14,6 +15,8 @@ accountRounter.get("/", getAccountPage);
 accountRounter.get("/account-list",getAllAccountPage);
 accountRounter.post("/updateInfo", updateInfo);
 accountRounter.get("/detail/:id", getAccountDetail);
+accountRounter.get("/lock/:id&:isBanned", lockSelectedAccount);
+
 // accountRounter.get("/edit/:id", getAccountPage);
 // accountRounter.post("/edit/:id", getAccountPage);
 
