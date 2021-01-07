@@ -5,7 +5,7 @@
                 <div class="product-status-wrap">
                     <h4>Danh sách sản phẩm</h4>
                     <div class="add-product">
-                        <a href="/product/add">Thêm sản phẩm</a>
+                        <a href="/dashboard/product/add">Thêm sản phẩm</a>
                     </div>
                     <table>
                         <tr>
@@ -28,17 +28,17 @@
                                 <td style="text-align:center;">{{quantity}}</td>
                                 <td style="text-align:center;">{{viewCount}}</td>
                                 <td style="text-align:center;">
-                                    <a href="/product/detail/{{id}}">
+                                    <a href="/dashboard/product/detail/{{id}}">
                                         <button data-toggle="tooltip" title="Chi tiết" class="pd-setting-ed"><i
                                                 class="fa fa-info-circle" aria-hidden="true"></i>
                                         </button>
                                     </a>
-                                    <a href="/product/edit/{{id}}">
+                                    <a href="/dashboard/product/edit/{{id}}">
                                         <button data-toggle="tooltip" title="Sửa" class="pd-setting-ed"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </button>
                                     </a>
-                                    <a href="/product/delete/{{id}}"
+                                    <a href="/dashboard/product/delete/{{id}}"
                                         onclick="return confirm ('Bạn có muốn xóa sản phẩm này?');">
                                         <button data-toggle=" tooltip" title="Xóa" class="pd-setting-ed"><i
                                                 class="fa fa-trash-o" aria-hidden="true"></i>
@@ -64,13 +64,13 @@
 
                                 {{#each listPaginate}}
                                     <li class="page-item">
-                                        <a class="page-link" href="/product?page={{pageId}}">{{pageId}}</a>
+                                        <a class="page-link" href="/dashboard/product?page={{pageId}}">{{pageId}}</a>
                                     </li>
                                 {{/each}}
 
                                 {{#if isNextPage}}
                                     <li class="page-item">
-                                        <a class="page-link" href="/product?page={{nextPage}}">Sau</a>
+                                        <a class="page-link" href="/dashboard/product?page={{nextPage}}">Sau</a>
                                     </li>
                                 {{else}}
                                     <li class="page-item disabled">
