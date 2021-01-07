@@ -5,9 +5,9 @@ const SALT_ROUNDS = 10;
 import passport from "passport";
 const localStrategy = require("passport-local").Strategy;
 
-import adminRouter  from "./adminRouter";
+import adminRouter from "./adminRouter";
 // import accountRounter  from "./accountRouter";
-import { getAccountAuthenticate, getLoginPage} from "../controllers/accountController"
+import { getAccountAuthenticate, getLoginPage } from "../controllers/accountController"
 
 const indexRouter = express.Router();
 
@@ -18,7 +18,7 @@ indexRouter.use("/dashboard", (req, res, next) => {
         next();
     }
     else
-        res.render("error/autheticate", { title: "Đăng nhập", layout: "layout/loginlayout" , Noti:"Bạn chưa đăng nhập"});
+        res.render("error/autheticate", { title: "Đăng nhập", layout: "layout/loginlayout", Noti: "Bạn chưa đăng nhập" });
 }, adminRouter);
 // indexRouter.use("/user", userRouter);
 
@@ -30,17 +30,19 @@ indexRouter.route("/")
     // .post(passport.authenticate("local", { failureRedirect: "/login", successRedirect: "/",failureFlash : true}));
     .post(function (req, res, next) {
         passport.authenticate('local', function (err, user, info) {
-            if (err) { 
-                return next(err); }
-            if (!user) { 
+            if (err) {
+                return next(err);
+            }
+            if (!user) {
                 req.session.valid = "Mật khẩu hoặc tài khoản không đúng";
-                return res.redirect('/'); 
+                return res.redirect('/');
             }
             req.logIn(user, function (err) {
 
-                
-                if (err) { 
-                    return next(err); }
+
+                if (err) {
+                    return next(err);
+                }
                 return res.redirect('/dashboard');
             });
         })(req, res, next);
