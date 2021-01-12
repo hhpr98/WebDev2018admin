@@ -133,7 +133,7 @@ export const editProductPost = catchAsync(
 
         await updateProductDatabase(id, name, originPrice, salePrice, salePercent, quantity, description, branch, size, color, image1, image2, image3, specification1, specification2, specification3, catId);
 
-        res.redirect(`/product/detail/${id}`);
+        res.redirect(`/dashboard/product/detail/${id}`);
 
     }
 );
@@ -226,11 +226,11 @@ export const updateProductImage = catchAsync(
         console.log(typeof num);
         console.log(num);
 
-        if(num=="1")
+        if (num == "1")
             await updateImage1(id, newUrl);
-        if(num =="2")
+        if (num == "2")
             await updateImage2(id, newUrl);
-        if(num=="3")
+        if (num == "3")
             await updateImage3(id, newUrl);
         res.redirect('/dashboard/product/edit/' + id);
     }
