@@ -8,7 +8,7 @@ import productRouter from "./productRouter";
 import accountRounter from "./accountRouter";
 
 const adminRouter = express.Router();
-adminRouter.use("/home", homeRouter);
+adminRouter.use("/", homeRouter);
 adminRouter.use("/account", accountRounter);
 // adminRouter.use("/user", userRouter);
 adminRouter.use("/product", productRouter);
