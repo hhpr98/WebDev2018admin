@@ -14,6 +14,7 @@ adminRouter.use("/account", accountRounter);
 // adminRouter.use("/user", userRouter);
 adminRouter.use("/product", productRouter);
 adminRouter.use("/statistic", statisticRouter);
+adminRouter.get("/logout", (req,res) => res.redirect("/")); // hot fix bug
 
 // for login
 
