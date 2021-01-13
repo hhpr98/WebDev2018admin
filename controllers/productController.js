@@ -13,6 +13,7 @@ import {
     updateImage3
 } from "../models/productModels";
 import catchAsync from "../libs/catchAsync";
+import { getAllCartDatabase, updateCartStatus } from "../models/cartModels";
 
 // hàm lấy mảng paginate dựa vào tổng số trang vào số trang hiện tại
 //  [
@@ -247,5 +248,29 @@ export const getProductDetailPage = catchAsync(
             title: "Chi tiết sản phẩm",
             product, categoryName, category
         });
+    }
+);
+
+// Trang quản lí đơn đặt hàng
+export const getCartManagementPage = catchAsync(
+    async (req, res) => {
+
+        const cart = await getAllCartDatabase();
+        res.render("cart/cart-management", {
+            title: "Quản lí đơn đặt hàng",
+            cart
+        });
+    }
+);
+
+// Action : Hoàn tất đơn hàng
+export const finishCart = catchAsync(
+    async (req, res) => {
+
+        const cartId = req.params.id || "0";
+
+        await updateCartStatus(cartId);
+
+        res.redirect("/dashboard/product/cart");
     }
 );

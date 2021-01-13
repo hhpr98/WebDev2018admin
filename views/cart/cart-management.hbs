@@ -1,0 +1,41 @@
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>Quản lí đơn đặt hàng</h4>
+
+                    <table class="table-hover">
+                        <tr>
+                            <th style="text-align:center;">ID đơn hàng</th>
+                            <th style="text-align:center;">Tổng cộng</th>
+                            <th style="text-align:center;">Địa chỉ</th>
+                            <th style="text-align:center;">Tình trạng đơn hàng</th>
+                            <th style="text-align:center;">Ngày tạo đơn hàng</th>
+                        </tr>
+                        {{#each cart}}
+                            <tr>
+                                <td style="text-align:center;">{{id}}</td>
+                                <td style="text-align:center;">{{formatCurencyVND totalAmount}}đ</td>
+                                <td style="text-align:center;">{{cartNote}}</td>
+                                <td style="text-align:center;">{{cartStatus}}</td>
+                                <td style="text-align:center;">{{createdAt}}</td>
+
+
+                                <td style="text-align:center;">
+
+                                    <a href="/dashboard/product/cart/finish/{{id}}"
+                                        onclick="return confirm ('Hoàn tất đơn hàng này?');">
+                                        <button data-toggle=" tooltip" title="Hoàn tất đơn hàng" class="pd-setting-ed">
+                                            <i class="fa fa-lock" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
