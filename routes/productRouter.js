@@ -12,6 +12,8 @@ import {
   getProductListPageBySearchText,
   updateProductImage,
   getProductDetailPage,
+  getCartManagementPage,
+  finishCart,
 } from "../controllers/productController";
 const productRouter = express.Router();
 
@@ -25,6 +27,8 @@ productRouter.get("/delete/:id", deleteProduct);
 productRouter.get("/category", getCategoryPage);
 productRouter.get("/category/:id", getProductListPageByCategoryPage);
 productRouter.get("/search", getProductListPageBySearchText);
+productRouter.get("/cart", getCartManagementPage);
+productRouter.get("/cart/finish/:id", finishCart);
 
 // set storrage for image
 var storage = multer.diskStorage({
